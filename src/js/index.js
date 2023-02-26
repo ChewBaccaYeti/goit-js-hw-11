@@ -33,6 +33,8 @@ searchForm.addEventListener('submit', async e => {
 
   let page = 1;
 
+  searchBox.value = searchBox.value.trim();
+
   if (!searchBox.value) {
     return;
   }
