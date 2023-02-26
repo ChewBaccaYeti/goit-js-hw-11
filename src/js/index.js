@@ -45,13 +45,13 @@ searchForm.addEventListener('submit', async e => {
   const fetchedImages = await fetchImages(searchBox.value, page, per_page);
 
   if (fetchedImages.total === 0) {
-    Notify.info(
+    Notify.failure(
       'Sorry, there are no images matching your search query. Please try again.'
     );
     return;
   }
 
-  Notify.info(`Hooray! We found ${fetchedImages.totalHits} images.`);
+  Notify.success(`Hooray! We found ${fetchedImages.totalHits} images.`);
   gallery.insertAdjacentHTML('beforeend', renderMarkup(fetchedImages.hits));
 
   lightbox.refresh();
